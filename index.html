@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<title>Listing Generator</title>
+<style>
+   
+</style>
+</head>
+<body>
+<div class="wrapper">
+    <div hidden>
+<h3>Store Option:</h3>
+<input type="radio" name="radioOption" id="ebay_shopify" value="Option 1" checked>
+<label for="ebay_shopify">eBay and Shopify</label>
+<input type="radio" name="radioOption" id="shopify" value="Option 2">
+<label for="shopify">Shopify Only</label>
+<input type="radio" name="radioOption" id="ebay" value="Option 3">
+<label for="ebay">eBay Only</label>
+</div>
+<div class="mydict">    
+<h3>Drive Options:</h3>
+<div>
+<label>
+<input type="radio" name="radioOption2" id="hdd" value="hdd" checked>
+<span for="hdd">Hard Drive</span>
+</label>
+<label>    
+<input type="radio" name="radioOption2" id="ssd" value="ssd">
+<span for="ssd">Solid State Drive</span> 
+</label>    
+</div>    
+</div>
+<details class="main_input" open>
+<summary>Main Inputs</summary>
+    
+<div class="input_fields">
+<!-- All your original input fields remain unchanged -->
+<span>
+<label for="brand">Brand</label><input type="text" id="brand" name="brand" placeholder="Brand:" required>
+</span>
+<span><span class="tipwrapper"><label for="brand">Series</label>
+  <span class="tooltip">
+    <span class="info-icon">i</span>
+<span class="tooltiptext">E.g.: For Dell - Generation 14, Generation 13</span>
+</span></span><input type="text" id="series" name="series" placeholder="Series:"></span>
+<span><label>Part Number</label><input type="text" id="partNumber" name="part_number" placeholder="Part Number:"></span>
+<span><label>Model Number</label><input type="text" id="modelNumber" name="model_number" placeholder="Model Number:" required></span>
+<span><span class="tipwrapper"><label for="brand">Capacity</label>
+  <span class="tooltip">
+    <span class="info-icon">i</span>
+<span class="tooltiptext">E.g.: 12TB, 20TB, 1.92TB, 1TB</span>
+</span></span><input type="text" id="capacity" name="capacity" placeholder="Capacity:" required></span>
+<span class="endurance-input"><label>Drive Endurance</label><input type="text" id="endurance" name="endurance" placeholder="Endurance:" required></span>
+<span class="spindle-input">  <span class="tipwrapper"><label for="brand">Spindle Speed</label>
+  <span class="tooltip">
+    <span class="info-icon">i</span>
+    <span class="tooltiptext">E.g.: 7.2K RPM, 5.2K RPM</span>
+  </span></span><input type="text" id="spindleSpeed" name="spindle_speed" placeholder="Spindle Speed: RPM" required></span>
+<span><label>Interface</label>
+<select id="interface">
+    <option value="">--Choose an option--</option>
+    <option value="SAS">SAS</option>
+    <option value="SAS-4">SAS-4</option>
+    <option value="SATA">SATA</option>
+    <option value="PCIe Gen 3.0 x4">PCIe Gen 3.0 x4</option>
+    <option value="PCIe Gen 3.0 x16">PCIe Gen 3.0 x16</option>
+    <option value="PCIe Gen 3.1 x4">PCIe Gen 3.1 x4</option>
+    <option value="PCIe Gen 3.1 x16">PCIe Gen 3.1 x16</option>
+    <option value="M.2">M.2</option>
+    <option value="FC">FC</option>
+    <option value="PCIe Gen 4.0 x4">PCIe Gen 4.0 x4</option>
+    <option value="PCIe Gen 4.0 x8">PCIe Gen 4.0 x8</option>
+</select></span>
+<span><label>Interface Speed</label>
+<select id="speed">
+    <option value="">--Choose an option--</option>
+    <option value="3Gb/s">3Gb/s</option>
+    <option value="6Gb/s">6Gb/s</option>
+    <option value="12Gb/s">12Gb/s</option>
+    <option value="24Gb/s">24Gb/s</option>
+    <option value="4GB/s">4GB/s</option>
+    <option value="8GB/s">8GB/s</option>
+    <option value="16GB/s">16GB/s</option>
+    <option value="16GB/s">24GB/s</option>
+    
+</select></span>
+<span><span class="tipwrapper"><label for="brand">Sector Size</label>
+  <span class="tooltip">
+    <span class="info-icon">i</span>
+<span class="tooltiptext">E.g.: For HDD: 512e, 4Kn<br> For SSD: 3D TLC U.2 NVMe </span>
+</span></span><input type="text" id="sectorSize" name="sector_size" placeholder="Sector Size:" required></span>
+    
+<span class="cache-input"><span class="tipwrapper"><label for="brand">Cache</label>
+  <span class="tooltip">
+    <span class="info-icon">i</span>
+<span class="tooltiptext">E.g.: 256MB, 512MB</span>
+</span></span><input type="text" id="cache" name="cache" placeholder="Cache:" required></span>
+<span><label>Form Factor</label>
+<select id="formFactor">
+<option value="3.5">3.5 Inch</option>
+<option value="2.5">2.5 Inch</option>  
+</select></span>
+<span><label>Type</label>
+    <input type="text" id="typeSelect" value=""></span>
+<span><label>Tray</label>
+<select id="tray">
+<option value="Bare Drive">Bare Drive</option>
+<option value="3.5 inch Dell G13 tray F238F">3.5 inch Dell G13 tray F238F</option>
+<option value="3.5 inch Dell G14 tray X7K8W">3.5 inch Dell G14 tray X7K8W</option>
+<option value="2.5 inch Dell G13 tray G176J">2.5 inch Dell G13 tray G176J</option>
+<option value="2.5 inch Dell G14 tray DXD9H">2.5 inch Dell G14 tray DXD9H</option>
+
+</select></span>
+<span><label>Image</label>
+<select id="image">
+<option value="https://cdn.shopify.com/s/files/1/0011/8675/8756/files/genericstorageharddrive__80066_44117b91-3b02-4c5f-8c05-7b8a6edb0bf2.jpg?v=1762283188">HDD</option>
+<option value="https://cdn.shopify.com/s/files/1/0011/8675/8756/files/generic_blank_SAS_SSD_8ebb12ba-0c6f-438a-acf4-8ca22beffea9.jpg?v=1762456428">SSD</option>
+<option value="https://cdn.shopify.com/s/files/1/0011/8675/8756/files/DellG13_ecd63698-5c98-43b9-8953-c8658b7c5653.webp?v=1763153403">G13 Tray</option>
+<option value="https://cdn.shopify.com/s/files/1/0011/8675/8756/files/Dell_G14_f698568c-51fd-4b99-92ec-7dbe2d639e82.webp?v=1764684877">G14 Tray</option> 
+<option value="others">Others</option>
+</select></span>
+<span class="other_image" style="display:none" id="other_image"> 
+<label>Other Image</label>
+<input type="text" id="otherImage" name="other_image" placeholder="Image URL">
+</span>       
+</div>
+
+<div class="sku_condition">
+<label>SKU Condition</label>
+<div class="sku_input">
+<div class="checkbox-wrapper-40">
+    <label>
+    <input type="checkbox" id="new" checked>
+  </label>
+  
+    <div class="conditionWrapper">
+    <input type="text" id="sku_new" placeholder="SKU New" required>
+  <input type="text" id="priceNew" placeholder="Price for New" required>
+    </div>
+  </div>    
+    
+    
+<div class="checkbox-wrapper-40">
+    <label>
+    <input type="checkbox" id="recertified" checked>
+  </label>
+ 
+    <div class="conditionWrapper">
+    <input type="text" id="sku_recertified" placeholder="SKU Recertified" required>
+    <input type="text" id="priceMR" placeholder="Price for MR" required>
+    </div>
+   </div>    
+    
+<div class="checkbox-wrapper-40">
+    <label>
+    <input type="checkbox" id="refurbished" checked>
+  </label>
+
+<div class="conditionWrapper">
+    <input type="text" id="sku_refurbished" placeholder="SKU Refurbished" required>
+    <input type="text" id="priceSR" placeholder="Price for SR" required>
+    </div>
+</div>
+</div>
+</div>
+    
+</details>
+
+<details class="ebay_input"><summary>eBay Additional Inputs</summary>
+<div class="ebay_hdd">
+<!-- All your eBay fields remain unchanged -->
+<span><label>Type</label><select id="ebayType">
+    <option value="Internal Desktop Drive">Internal Desktop Drive</option>
+    <option value="Enterprise Hard Drive">Enterprise Hard Drive</option>
+    <option value="SSD">SSD</option>
+    <option value="HDD">HDD</option>
+    <option value="Internal SSD">Internal SSD</option>
+    <option value="Enterprise SSD">Enterprise SSD</option>
+    </select>
+    </span>
+<span><span class="tipwrapper"><label for="brand">Hours</label>
+  <span class="tooltip">
+    <span class="info-icon">i</span>
+<span class="tooltiptext">E.g.: Seller Refurbished, Brand New<br>Seller Refurbished - Approx. 20K PoH</span>
+</span></span><input type="text" name="hours" id="hours" placeholder="Hours:"></span>
+<span><label>Read Speed</label><input type="text" name="read_speed" id="readSpeed" placeholder="Read Speed:"></span>
+<span id="writeInput"><label>Write Speed</label><input type="text" name="write_speed" id="writeSpeed" placeholder="Write Speed:"></span>
+<span id="recordingInput"><label>Recording Technology</label><input type="text" name="recording_tech" id="recordingTech" placeholder="Recording Technology:"></span>
+<span><label>MPN</label><input type="text" name="mpn" id="mpn" placeholder="MPN:"></span>
+<span><label>Important Message</label><input type="text" name="imMessage" id="imMessage" placeholder="Important Message:"></span>
+<span><label>Country/Region</label><input type="text" name="country" id="country" placeholder="Country/Region:"></span>
+<span><span class="tipwrapper"><label for="brand">Features</label>
+  <span class="tooltip">
+    <span class="info-icon">i</span>
+<span class="tooltiptext">E.g.: HelioSeal, Hot Swappable, Fast Format</span>
+</span></span><input type="text" name="features" id="features" placeholder="Features:"></span>
+<span><label>Compatible With</label><input type="text" name="compatible" id="compatible" placeholder="Compatible With:"></span>
+<span><span class="tipwrapper"><label for="brand">Drive Type</label>
+  <span class="tooltip">
+    <span class="info-icon">i</span>
+<span class="tooltiptext">E.g.: HDD, SSD, Internal SSD, Internal HDD</span>
+</span></span><input type="text" name="drive_type" id="driveType" placeholder="Drive Type:"></span>
+<span><span class="tipwrapper"><label for="brand">Storage Format</label>
+  <span class="tooltip">
+    <span class="info-icon">i</span>
+<span class="tooltiptext">E.g.: HDD Only, SSD Only</span>
+</span></span><input type="text" name="storage_format" id="storageFormat" placeholder="Storage Format:"></span>
+<span id="flashInput"><label>Flash</label><input type="text" name="flash" id="flash" placeholder="Flash"></span>
+<span><label>SKU</label><input type="text" name="ebay_SKU" id="ebaySKU" placeholder="SKU:" required></span>
+<span><label>Price</label><input type="text" name="ebay_Price" id="ebayPrice" placeholder="Price:" required></span>
+<span><label>Condition</label>
+<select id="condition">
+<option value="New">New</option>
+<option value="Open Box">Open Box</option>
+<option value="Excellent - Refurbished">Excellent - Refurbished</option>
+<option value="Very Good - Refurbished">Very Good - Refurbished</option>
+<option value="Good - Refurbished">Good - Refurbished</option> 
+<option value="Used">Used</option>
+<option value="For parts or not working">For parts or not working</option>
+<option value="Seller Refurbished">Seller Refurbished</option>    
+</select></span>   
+    <span><span class="tipwrapper"><label for="brand">Condition Note:</label>
+  <span class="tooltip">
+    <span class="info-icon">i</span>
+<span class="tooltiptext">2 Years Seller Warranty. Seller refurbished. Drives undergo intense sector-by-sector lab testing and shipped with industry leading packaging.</span>
+</span></span><textarea type="text" name="conditionNote" id="conditionNote" placeholder="Condition Note:" ></textarea></span>    
+</div>
+</details>
+
+<button class="btn-generate button-40">Generate</button>
+
+<!-- Tabs for eBay and Shopify -->
+<div class="tabs">
+    <div class="tab-buttons">
+        <button class="tab-btn active " data-tab="shopify-tab">Shopify</button>
+        <button class="tab-btn" data-tab="ebay-tab"><span id="ebayTabHDD">eBay HDD</span><span id="ebayTabSSD">eBay SSD</span></button>
+    </div>
+
+    <div id="shopify-tab" class="tab-content" style="display:block;">
+        <button id="exportShopify" class="btn-shopifyExport button-40">Export Shopify CSV</button>    
+        <div class="table-wrapper">
+            
+            <table id="shopify-table" class="resizable">
+                <thead>
+                    <tr>
+                        <!-- Shopify columns unchanged -->
+                        <th>Handle</th><th>Title</th><th>Body (HTML)</th><th>Vendor</th><th>Type</th>
+                        <th>Tags</th><th>Published</th><th>Option1 Name</th><th>Option1 Value</th>
+                        <th>Option2 Name</th><th>Option2 Value</th><th>Option3 Name</th><th>Option3 Value</th>
+                        <th>Variant SKU</th><th>Variant Grams</th><th>Variant Inventory Tracker</th>
+                        <th>Variant Inventory Qty</th><th>Variant Inventory Policy</th><th>Variant Fulfillment Service</th>
+                        <th>Variant Price</th><th>Variant Compare At Price</th><th>Variant Requires Shipping</th>
+                        <th>Variant Taxable</th><th>Variant Barcode</th><th>Image Src</th><th>Image Position</th>
+                        <th>Image Alt Text</th><th>Gift Card</th><th>SEO Title</th><th>SEO Description</th>
+                        <th>Google Shopping / Google Product Category</th><th>Google Shopping / Gender</th>
+                        <th>Google Shopping / Age Group</th><th>Google Shopping / MPN</th>
+                        <th>Google Shopping / AdWords Grouping</th><th>Google Shopping / AdWords Labels</th>
+                        <th>Google Shopping / Condition</th><th>Google Shopping / Custom Product</th>
+                        <th>Google Shopping / Custom Label 0</th><th>Google Shopping / Custom Label 1</th>
+                        <th>Google Shopping / Custom Label 2</th><th>Google Shopping / Custom Label 3</th>
+                        <th>Google Shopping / Custom Label 4</th><th>Variant Image</th><th>Variant Weight Unit</th>
+                        <th>Variant Tax Code</th><th>Cost per item</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="ebay-tab" class="tab-content">
+        <div id="ebayHDD">
+        <button id="exportEbay" class="btn-ebayExport button-40 ">Export eBay CSV</button>
+        <div class="table-wrapper">
+            
+            <table id="ebay-table" class="resizable">
+                <thead>
+                    <tr>
+                        <!-- eBay columns unchanged -->
+                        <th>Item ID</th><th>SKU</th><th>Parent SKU</th><th>Title</th><th>Description</th><th>Tags</th>
+                        <th>MetaKeywords</th><th>MetaDescription</th><th>MobileDescription</th><th>CategoryID</th>
+                        <th>CategoryID2</th><th>StoreCategory</th><th>StoreCategory2</th><th>eBayCatalogID</th>
+                        <th>eBayCatalogSearch</th><th>PromoteCampaign</th><th>PromoteRate</th><th>CarMake</th>
+                        <th>CarModel</th><th>CarYear</th><th>CarTrim</th><th>CarEngine</th><th>CopyCarCompatibility</th>
+                        <th>CarCompatibility</th><th>CarCompatibilityNotes</th><th>DeleteCarCompatibility</th><th>KType (TecDoc)</th>
+                        <th>PrivateListing</th><th>UpToQuantity</th><th>WarehouseQuantity</th><th>InventoryControl</th><th>Price</th>
+                        <th>WholesalePrice</th><th>OriginalRetailPrice</th><th>BestOffer</th><th>BestOfferAccept</th><th>BestOfferDecline</th>
+                        <th>VATPercent</th><th>ListingDuration</th><th>AuctionStartPrice</th><th>AuctionReservePrice</th><th>AuctionBINPrice</th>
+                        <th>Condition</th><th>ConditionNote</th><th>C:ASIN</th><th>C:UPC</th><th>C:EAN</th><th>C:MPN</th><th>C:Brand</th>
+                        <th>C:Manufacturer</th><th>C:Size</th><th>C:Color</th><th>C:Material</th><th>Attribute1Name</th><th>Attribute1Value</th>
+                        <th>Attribute2Name</th><th>Attribute2Value</th><th>CountryCode</th><th>Location</th><th>PostalCode</th>
+                        <th>PolicyPayment</th><th>PolicyShipping</th><th>PolicyReturn</th><th>PackageType</th><th>MeasurementSystem</th>
+                        <th>PackageLength</th><th>PackageWidth</th><th>PackageDepth</th><th>WeightMajor</th><th>WeightMinor</th>
+                        <th>ImageURLs</th><th>Image 1</th><th>Image 2</th><th>Image 3</th><th>VariationImageOption</th>
+                        <th>VariationImage 1</th><th>VariationImage 2</th><th>VariationImage 3</th><th>DeleteVariation</th><th>C:Type</th>
+                        <th>C:Hours</th><th>C:Read Speed</th><th>C:Cache</th><th>C:Rotation Speed</th><th>C:Interface</th>
+                        <th>C:Form Factor</th><th>C:Transfer Rate</th><th>C:Warranty</th><th>C:Recording Technology</th><th>C:Storage Capacity</th>
+                        <th>C:Model</th>
+                        <th>C:MPN</th>
+                        <th>C:Important Message</th>
+                        <th>C:Features</th>
+                        <th>C:Country/Region of Manufacture</th>
+                        <th>C:Compatible With</th>
+                        <th>C:Drive Type(s) Supported</th>
+                        <th>C:Storage Format</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+        <div id="ebaySSD" hidden>
+        <button id="exportEbaySSD" class="btn-ebayExport button-40 ">Export eBay CSV</button>
+        <div class="table-wrapper">
+            
+            <table id="ebay-tableSSD" class="resizable">
+                <thead>
+                    <tr>
+                        <!-- eBay columns unchanged -->
+                        <th>Item ID</th><th>SKU</th><th>Parent SKU</th><th>Title</th><th>Description</th><th>Tags</th>
+                        <th>MetaKeywords</th><th>MetaDescription</th><th>MobileDescription</th><th>CategoryID</th>
+                        <th>CategoryID2</th><th>StoreCategory</th><th>StoreCategory2</th><th>eBayCatalogID</th>
+                        <th>eBayCatalogSearch</th><th>PromoteCampaign</th><th>PromoteRate</th><th>CarMake</th>
+                        <th>CarModel</th><th>CarYear</th><th>CarTrim</th><th>CarEngine</th><th>CopyCarCompatibility</th>
+                        <th>CarCompatibility</th><th>CarCompatibilityNotes</th><th>DeleteCarCompatibility</th><th>KType (TecDoc)</th>
+                        <th>PrivateListing</th><th>UpToQuantity</th><th>WarehouseQuantity</th><th>InventoryControl</th><th>Price</th>
+                        <th>WholesalePrice</th><th>OriginalRetailPrice</th><th>BestOffer</th><th>BestOfferAccept</th><th>BestOfferDecline</th>
+                        <th>VATPercent</th><th>ListingDuration</th><th>AuctionStartPrice</th><th>AuctionReservePrice</th><th>AuctionBINPrice</th>
+                        <th>Condition</th><th>ConditionNote</th><th>C:ASIN</th><th>C:UPC</th><th>C:EAN</th><th>C:MPN</th><th>C:Brand</th>
+                        <th>C:Manufacturer</th><th>C:Size</th><th>C:Color</th><th>C:Material</th><th>Attribute1Name</th><th>Attribute1Value</th>
+                        <th>Attribute2Name</th><th>Attribute2Value</th><th>CountryCode</th><th>Location</th><th>PostalCode</th>
+                        <th>PolicyPayment</th><th>PolicyShipping</th><th>PolicyReturn</th><th>PackageType</th><th>MeasurementSystem</th>
+                        <th>PackageLength</th><th>PackageWidth</th><th>PackageDepth</th><th>WeightMajor</th><th>WeightMinor</th>
+                        <th>ImageURLs</th><th>Image 1</th><th>Image 2</th><th>Image 3</th><th>VariationImageOption</th>
+                        <th>VariationImage 1</th><th>VariationImage 2</th><th>VariationImage 3</th><th>DeleteVariation</th>
+                        <th>C:Type</th>
+                        <th>C:Hours</th>
+                        <th>C:Read Speed</th>
+                        <th>C:Interface</th>
+                        <th>C:Form Factor</th>
+                        <th>C:Transfer Rate</th>
+                        <th>C:Warranty</th>
+                        <th>C:Storage Capacity</th>
+                        <th>C:Model</th>
+                        <th>C:MPN</th>
+                        <th>C:Important Message</th>
+                        <th>C:Features</th>
+                        <th>C:Country/Region of Manufacture</th>
+                        <th>C:Compatible With</th>
+                        <th>C:Drive Type(s) Supported</th>
+                        <th>C:Storage Format</th>
+                        <th>C:Write Speed</th>
+                        <th>C:Endurance</th>
+                        <th>C:Flash</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+    <h3>Shopify Metafields Table</h3>
+<div class="table-wrapper">
+<table id="metafields-table" class="resizable">
+<thead>
+<tr>
+<th>Handle</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+<button id="exportMetafields" class="btn-shopify button-40">Export Metafields CSV</button>
+</div>
+<script src="script.js"></script>
+<script>
+// Grab inputs
+const partNumberInput = document.getElementById('partNumber'); // changed from series
+const modelInput = document.getElementById('modelNumber');
+const skuNewInput = document.getElementById('sku_new');
+const skuRecertifiedInput = document.getElementById('sku_recertified');
+const skuRefurbishedInput = document.getElementById('sku_refurbished');
+const ebaySKUInput = document.getElementById('ebaySKU');
+const conditionInput = document.getElementById('condition');
+
+const conditionMap = {
+    "New": "NEW",
+    "Open Box": "BULK",
+    "Excellent - Refurbished": "MR",
+    "Very Good - Refurbished": "CR",
+    "Good - Refurbished": "SR",
+    "Used": "GB",
+    "For parts or not working": "GC"
+};
+
+// Flags to track if user edited the field
+let skuNewEdited = false;
+let skuRecertifiedEdited = false;
+let skuRefurbishedEdited = false;
+let ebaySKUEdited = false;
+
+// Mark a field as edited if user types manually
+skuNewInput.addEventListener('input', () => { skuNewEdited = true; });
+skuRecertifiedInput.addEventListener('input', () => { skuRecertifiedEdited = true; });
+skuRefurbishedInput.addEventListener('input', () => { skuRefurbishedEdited = true; });
+ebaySKUInput.addEventListener('input', () => { ebaySKUEdited = true; });
+
+function generateSKUs() {
+    const partNumber = partNumberInput.value.trim();
+    const model = modelInput.value.trim();
+
+    if (!model) {
+        if (!skuNewEdited) skuNewInput.value = '';
+        if (!skuRecertifiedEdited) skuRecertifiedInput.value = '';
+        if (!skuRefurbishedEdited) skuRefurbishedInput.value = '';
+        if (!ebaySKUEdited) ebaySKUInput.value = '';
+        return;
+    }
+
+    const partSuffix = partNumber ? `-${partNumber}` : '';
+
+    if (!skuNewEdited) skuNewInput.value = `${model}${partSuffix}_NB`;
+    if (!skuRecertifiedEdited) skuRecertifiedInput.value = `${model}${partSuffix}_MR`;
+    if (!skuRefurbishedEdited) skuRefurbishedInput.value = `${model}${partSuffix}_SR`;
+
+    const conditionCode = conditionMap[conditionInput.value] || '';
+    if (!ebaySKUEdited) ebaySKUInput.value = `EB_${model}${partSuffix}_${conditionCode}_1`;
+}
+
+// Listeners
+partNumberInput.addEventListener('input', generateSKUs);
+modelInput.addEventListener('input', generateSKUs);
+conditionInput.addEventListener('change', generateSKUs);
+
+    
+document.querySelectorAll('.tooltip').forEach(tooltip => {
+  const tooltipText = tooltip.querySelector('.tooltiptext');
+  
+  tooltip.addEventListener('mouseenter', function() {
+    // First make it visible but transparent to get actual height
+    tooltipText.style.visibility = 'visible';
+    tooltipText.style.opacity = '0';
+    
+    const rect = this.getBoundingClientRect();
+    const tooltipHeight = tooltipText.offsetHeight;
+    
+    // Position it
+    tooltipText.style.left = (rect.left + rect.width / 2 - 90) + 'px'; // center it
+    tooltipText.style.top = (rect.top - tooltipHeight - 10) + 'px'; // 10px gap above icon
+    
+    // Now fade it in
+    setTimeout(() => {
+      tooltipText.style.opacity = '1';
+    }, 10);
+  });
+  
+  tooltip.addEventListener('mouseleave', function() {
+    tooltipText.style.opacity = '0';
+    setTimeout(() => {
+      tooltipText.style.visibility = 'hidden';
+    }, 300); // match your CSS transition duration
+  });
+});
+    </script>
+</body>
+</html>

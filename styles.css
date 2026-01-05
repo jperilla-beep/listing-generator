@@ -1,0 +1,529 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    margin: 20px;
+}
+
+/* Input fields container */
+.input_fields, .ebay_hdd {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+.sku_input {
+   display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}    
+
+.ebay_hdd span, .input_fields span {
+    display: flex;
+    flex-direction: column;
+}
+
+.ebay_input, .main_input {
+    margin-top: 30px;
+}    
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 5px;
+    font-size: 14px;
+}
+
+details summary {
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.wrapper {
+    margin: 10px auto;
+    max-width: 1200px;
+    padding: 10px 40px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 0 20px;
+    border-radius: 10px;
+
+}
+.conditionWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Tabs */
+.tabs {
+    margin-top: 30px;
+}
+
+.tab-buttons {
+    display: flex;
+    border-bottom: 2px solid #ccc;
+}
+
+.tab-buttons button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background-color: #f1f1f1;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.tab-buttons button.active {
+    border-bottom: 2px solid #007bff;
+    background-color: #fff;
+}
+
+.tab-content {
+    display: none;
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 10px;
+    overflow: auto;
+    max-height: 500px;
+}
+
+/* Table styling */
+.table-wrapper {
+    overflow: auto;       /* scroll when table is wider */
+    max-width: 100%;
+    border: 1px solid #ccc;
+}
+table.resizable {
+    table-layout: fixed;  /* keeps columns constrained */
+    border-collapse: collapse;
+    width: 100%;          /* fill wrapper */
+    min-width: 1200px;    /* optional, so scroll shows if content is wide */
+}
+table {
+    border-collapse: collapse;
+    width: max-content;
+    min-width: 100%;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* clip text with ... */
+    width: 100px;
+}
+
+/* Resizable columns */
+.resizable th {
+    position: relative;
+}
+.resizable th .resizer {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    cursor: col-resize;
+    user-select: none;
+}
+.resizable th:hover .resizer {
+    background: rgba(0,0,0,0.1);
+}
+.btn-shopifyExport, .btn-ebayExport{
+    margin-bottom: 10px;    
+    }
+    
+     .checkbox-wrapper-40 {
+        --borderColor: #48c;
+        --borderWidth: .125em;
+    }
+
+    .checkbox-wrapper-40 label {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .checkbox-wrapper-40 input[type=checkbox] {
+        -webkit-appearance: none;
+        appearance: none;
+        vertical-align: middle;
+        background: #fff;
+        font-size: 1.8em;
+        border-radius: 0.125em;
+        display: inline-block;
+        border: var(--borderWidth) solid var(--borderColor);
+        width: 1em;
+        height: 1em;
+        position: relative;
+    }
+
+    .checkbox-wrapper-40 input[type=checkbox]:before,
+    .checkbox-wrapper-40 input[type=checkbox]:after {
+        content: "";
+        position: absolute;
+        background: var(--borderColor);
+        width: calc(var(--borderWidth) * 3);
+        height: var(--borderWidth);
+        top: 50%;
+        left: 10%;
+        transform-origin: left center;
+    }
+
+    .checkbox-wrapper-40 input[type=checkbox]:before {
+        transform: rotate(45deg) translate(calc(var(--borderWidth) / -2), calc(var(--borderWidth) / -2)) scaleX(0);
+        transition: transform 200ms ease-in 200ms;
+    }
+
+    .checkbox-wrapper-40 input[type=checkbox]:after {
+        width: calc(var(--borderWidth) * 5);
+        transform: rotate(-45deg) translateY(calc(var(--borderWidth) * 2)) scaleX(0);
+        transform-origin: left center;
+        transition: transform 200ms ease-in;
+    }
+
+    .checkbox-wrapper-40 input[type=checkbox]:checked:before {
+        transform: rotate(45deg) translate(calc(var(--borderWidth) / -2), calc(var(--borderWidth) / -2)) scaleX(1);
+        transition: transform 200ms ease-in;
+    }
+
+    .checkbox-wrapper-40 input[type=checkbox]:checked:after {
+        width: calc(var(--borderWidth) * 5);
+        transform: rotate(-45deg) translateY(calc(var(--borderWidth) * 2)) scaleX(1);
+        transition: transform 200ms ease-out 200ms;
+    }
+
+    .checkbox-wrapper-40 input[type=checkbox]:focus {
+        outline: calc(var(--borderWidth) / 2) dotted rgba(0, 0, 0, 0.25);
+    }
+ /* CSS */
+.button-40 {
+background-color: #111827;
+border: 1px solid transparent;
+border-radius: .75rem;
+box-sizing: border-box;
+color: #FFFFFF;
+cursor: pointer;
+flex: 0 0 auto;
+font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+font-size: 1rem;
+font-weight: 600;
+text-align: center;
+text-decoration: none #6B7280 solid;
+text-decoration-thickness: auto;
+transition-duration: .2s;
+transition-property: background-color,border-color,color,fill,stroke;
+transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+width: auto;
+}
+
+.button-40:hover {
+background-color: #374151;
+}
+
+.button-40:focus {
+box-shadow: none;
+outline: 2px solid transparent;
+outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+.button-40 {
+padding: .75rem 1.5rem;
+}
+}   
+      
+    
+    input, select, textarea{
+       
+                padding: 5px 12px;
+                font-size: 14px;
+                line-height: 20px;
+                color: #24292e;
+                vertical-align: middle;
+                background-color: #ffffff;
+                background-repeat: no-repeat;
+                background-position: right 8px center;
+                border: 1px solid #e1e4e8;
+                border-radius: 6px;
+                outline: none;
+                box-shadow: rgba(225, 228, 232, 0.2) 0px 1px 0px 0px inset;
+                :focus{
+                    border-color: #0366d6;
+                    outline: none;
+                    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;             
+    }
+    }
+    .btn-shopify, .btn-generate{
+        margin-top:10px;
+    }
+  /* Table styling */
+table.resizable, #ebay-table, #metafields-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+    min-width: 800px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Table headers */
+table.resizable th, #ebay-table th, #metafields-table th {
+    background-color: #f7f7f7;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px 8px;
+    border-bottom: 2px solid #ccc;
+    position: relative;
+}
+
+/* Table cells */
+table.resizable td, #ebay-table td, #metafields-table td {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* Zebra stripes */
+table.resizable tbody tr:nth-child(even), #ebay-table tbody tr:nth-child(even), #metafields-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* Hover effect */
+table.resizable tbody tr:hover, #ebay-table tbody tr:hover, #metafields-table tbody tr:hover {
+    background-color: #f0f8ff;
+}
+
+/* Resizer */
+.resizable th .resizer {
+    width: 6px;
+    background: transparent;
+    cursor: col-resize;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+.resizable th:hover .resizer {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Metafields table smaller font */
+#metafields-table {
+    font-size: 13px;
+}  
+label {
+    font-weight: 600;           /* Slightly bolder but not too heavy */
+    font-size: 14px;            /* Clean readable size */
+    color: #333;                /* Dark gray instead of black for softer look */
+    margin-bottom: 6px;         /* Space between label and input */
+    text-transform: capitalize;  /* Optional: makes first letter uppercase */
+}
+
+/* Optional: smaller labels for compact areas */
+label.small {
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+}
+    
+    .endurance-input{
+        display: none !important;  
+    }
+
+td[contenteditable="true"] {
+    background-color: #ffffe0;  /* light yellow */
+    border: 1px dashed #ccc;
+}
+td[contenteditable="true"]:focus {
+    outline: 2px solid #007bff; /* blue border on focus */
+}
+
+details {
+margin: 0 auto;
+    background: #f9f9f9;
+    margin-bottom: .5rem;
+    box-shadow: 0 .1rem 1rem -.2rem rgba(0, 0, 0, .4);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+summary {
+  padding: 1rem;
+  display: block;
+  background: #fdfdfd;
+  padding-left: 2.2rem;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+summary:before {
+  content: '';
+  border-width: .4rem;
+  border-style: solid;
+  border-color: transparent transparent transparent #fff;
+  position: absolute;
+  top: 1.3rem;
+  left: 1rem;
+  transform: rotate(0);
+  transform-origin: .2rem 50%;
+  transition: .25s transform ease;
+}
+
+/* THE MAGIC 🧙‍♀️ */
+details[open] > summary:before {
+  transform: rotate(90deg);
+}
+
+
+details summary::-webkit-details-marker {
+  display:none;
+}
+
+details > ul {
+  padding-bottom: 1rem;
+  margin-bottom: 0;
+}
+
+    
+    .input_fields, .sku_condition {
+    padding: 0px 30px 30px 30px;
+}
+ .ebay_hdd {
+    padding: 0 30px 30px 30px;
+}
+:focus {
+  outline: 0;
+  border-color: #2260ff;
+  box-shadow: 0 0 0 4px #b5c9fc;
+}
+
+.mydict div {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+
+}
+
+.mydict input[type="radio"] {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.mydict input[type="radio"]:checked + span {
+  box-shadow: 0 0 0 0.0625em #0043ed;
+  background-color: #dee7ff;
+  z-index: 1;
+  color: #0043ed;
+}
+
+label span {
+  display: block;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 0.375em .75em;
+  position: relative;
+  margin-left: .0625em;
+  box-shadow: 0 0 0 0.0625em #b5bfd9;
+  letter-spacing: .05em;
+  color: #3e4963;
+  text-align: center;
+  transition: background-color .5s ease;
+}
+
+label:first-child span {
+  border-radius: .375em 0 0 .375em;
+}
+
+label:last-child span {
+  border-radius: 0 .375em .375em 0;
+}
+ .checkbox-wrapper-40 {
+    display: flex;
+}
+
+/* Make label and info icon inline */
+span label {
+  display: inline-block;   /* label stays inline */
+  margin-right: 5px;       /* space between label and icon */
+  vertical-align: middle;  /* align with icon */
+}
+
+span .tooltip {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;  /* align with label text */
+}
+
+/* Tooltip text */
+/* Tooltip text with fixed positioning */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 180px;
+    min-height: 20px; /* Add minimum height */
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: fixed;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Info icon style */
+.info-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #666;
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  font-family: sans-serif;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Keep tooltip container relative */
+.tooltip {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  z-index: 1000;
+}
+span.tipwrapper {
+    flex-direction: row;
+}
+.input_fields span {
+  overflow: visible; /* allow child tooltip to show outside */
+}

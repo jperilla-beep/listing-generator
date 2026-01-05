@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product Inputs</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+/* Input fields container */
+.input_fields, .ebay_hdd {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+.sku_input {
+   display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}    
+
+.ebay_hdd span, .input_fields span {
+    display: flex;
+    flex-direction: column;
+}
+
+.sku_condition, .ebay_input, .main_input {
+    margin-top: 30px;
+}    
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 5px;
+    font-size: 14px;
+}
+
+details summary {
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.wrapper {
+    margin: 10px auto;
+    max-width: 1200px;
+    padding: 10px 40px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 0 20px;
+    border-radius: 10px;
+
+}
+
+/* Tabs */
+.tabs {
+    margin-top: 30px;
+}
+
+.tab-buttons {
+    display: flex;
+    border-bottom: 2px solid #ccc;
+}
+
+.tab-buttons button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background-color: #f1f1f1;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.tab-buttons button.active {
+    border-bottom: 2px solid #007bff;
+    background-color: #fff;
+}
+
+.tab-content {
+    display: none;
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 10px;
+    overflow: auto;
+    max-height: 500px;
+}
+
+/* Table styling */
+.table-wrapper {
+    overflow: auto;       /* scroll when table is wider */
+    max-width: 100%;
+    border: 1px solid #ccc;
+}
+table.resizable {
+    table-layout: fixed;  /* keeps columns constrained */
+    border-collapse: collapse;
+    width: 100%;          /* fill wrapper */
+    min-width: 1200px;    /* optional, so scroll shows if content is wide */
+}
+table {
+    border-collapse: collapse;
+    width: max-content;
+    min-width: 100%;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* clip text with ... */
+    width: 100px;
+}
+
+/* Resizable columns */
+.resizable th {
+    position: relative;
+}
+.resizable th .resizer {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    cursor: col-resize;
+    user-select: none;
+}
+.resizable th:hover .resizer {
+    background: rgba(0,0,0,0.1);
+}
+.btn-shopifyExport, .btn-ebayExport{
+    margin-bottom: 10px;    
+    }
+    
+     .checkbox-wrapper-40 {
+        --borderColor: #48c;
+        --borderWidth: .125em;
+    }
+
+    .checkbox-wrapper-40 label {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .checkbox-wrapper-40 input[type=checkbox] {
+        -webkit-appearance: none;
+        appearance: none;
+        vertical-align: middle;
+        background: #fff;
+        font-size: 1.8em;
+        border-radius: 0.125em;
+        display: inline-block;
+        border: var(--borderWidth) solid var(--borderColor);
+        width: 1em;
+        height: 1em;
+        position: relative;
+    }
+
+    .checkbox-wrapper-40 input[type=checkbox]:before,
+    .checkbox-wrapper-40 input[type=checkbox]:after {
+        content: "";
+        position: absolute;
+        background: var(--borderColor);
+        width: calc(var(--borderWidth) * 3);
+        height: var(--borderWidth);
+        top: 50%;
+        left: 10%;
+        transform-origin: left center;
+    }
+
+    .checkbox-wrapper-40 input[type=checkbox]:before {
+        transform: rotate(45deg) translate(calc(var(--borderWidth) / -2), calc(var(--borderWidth) / -2)) scaleX(0);
+        transition: transform 200ms ease-in 200ms;
+    }
+
+    .checkbox-wrapper-40 input[type=checkbox]:after {
+        width: calc(var(--borderWidth) * 5);
+        transform: rotate(-45deg) translateY(calc(var(--borderWidth) * 2)) scaleX(0);
+        transform-origin: left center;
+        transition: transform 200ms ease-in;
+    }
+
+    .checkbox-wrapper-40 input[type=checkbox]:checked:before {
+        transform: rotate(45deg) translate(calc(var(--borderWidth) / -2), calc(var(--borderWidth) / -2)) scaleX(1);
+        transition: transform 200ms ease-in;
+    }
+
+    .checkbox-wrapper-40 input[type=checkbox]:checked:after {
+        width: calc(var(--borderWidth) * 5);
+        transform: rotate(-45deg) translateY(calc(var(--borderWidth) * 2)) scaleX(1);
+        transition: transform 200ms ease-out 200ms;
+    }
+
+    .checkbox-wrapper-40 input[type=checkbox]:focus {
+        outline: calc(var(--borderWidth) / 2) dotted rgba(0, 0, 0, 0.25);
+    }
+ /* CSS */
+.button-40 {
+background-color: #111827;
+border: 1px solid transparent;
+border-radius: .75rem;
+box-sizing: border-box;
+color: #FFFFFF;
+cursor: pointer;
+flex: 0 0 auto;
+font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto
+Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+font-size: 1rem;
+font-weight: 200;
+text-align: center;
+text-decoration: none #6B7280 solid;
+text-decoration-thickness: auto;
+transition-duration: .2s;
+transition-property: background-color,border-color,color,fill,stroke;
+transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+width: auto;
+}
+
+.button-40:hover {
+background-color: #374151;
+}
+
+.button-40:focus {
+box-shadow: none;
+outline: 2px solid transparent;
+outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+.button-40 {
+padding: .75rem 1.5rem;
+}
+}   
+      
+    
+    input, select{
+       
+                padding: 5px 12px;
+                font-size: 14px;
+                line-height: 20px;
+                color: #24292e;
+                vertical-align: middle;
+                background-color: #ffffff;
+                background-repeat: no-repeat;
+                background-position: right 8px center;
+                border: 1px solid #e1e4e8;
+                border-radius: 6px;
+                outline: none;
+                box-shadow: rgba(225, 228, 232, 0.2) 0px 1px 0px 0px inset;
+                :focus{
+                    border-color: #0366d6;
+                    outline: none;
+                    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;             
+    }
+    }
+    .btn-shopify, .btn-generate{
+        margin-top:10px;
+    }
+  /* Table styling */
+table.resizable, #ebay-table, #metafields-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+    min-width: 800px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Table headers */
+table.resizable th, #ebay-table th, #metafields-table th {
+    background-color: #f7f7f7;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px 8px;
+    border-bottom: 2px solid #ccc;
+    position: relative;
+}
+
+/* Table cells */
+table.resizable td, #ebay-table td, #metafields-table td {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* Zebra stripes */
+table.resizable tbody tr:nth-child(even), #ebay-table tbody tr:nth-child(even), #metafields-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* Hover effect */
+table.resizable tbody tr:hover, #ebay-table tbody tr:hover, #metafields-table tbody tr:hover {
+    background-color: #f0f8ff;
+}
+
+/* Resizer */
+.resizable th .resizer {
+    width: 6px;
+    background: transparent;
+    cursor: col-resize;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+.resizable th:hover .resizer {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Metafields table smaller font */
+#metafields-table {
+    font-size: 13px;
+}  
+label {
+    font-weight: 600;           /* Slightly bolder but not too heavy */
+    font-size: 14px;            /* Clean readable size */
+    color: #333;                /* Dark gray instead of black for softer look */
+    margin-bottom: 6px;         /* Space between label and input */
+    text-transform: capitalize;  /* Optional: makes first letter uppercase */
+}
+
+/* Optional: smaller labels for compact areas */
+label.small {
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+}
+    
+    .endurance-input{
+        display: none !important;  
+    }
+</style>
+</head>
+<body>
+<div class="wrapper">
+<h3>Store Option:</h3>
+<input type="radio" name="radioOption" id="ebay_shopify" value="Option 1" checked>
+<label for="ebay_shopify">eBay and Shopify</label>
+<input type="radio" name="radioOption" id="shopify" value="Option 2">
+<label for="shopify">Shopify Only</label>
+<input type="radio" name="radioOption" id="ebay" value="Option 3">
+<label for="ebay">eBay Only</label>
+
+<h3>Drive Option:</h3>
+<input type="radio" name="radioOption2" id="hdd" value="hdd" checked>
+<label for="hdd">Hard Drive</label>
+<input type="radio" name="radioOption2" id="ssd" value="ssd">
+<label for="ssd">Solid State Drive</label>    
+
+<details class="main_input" open>
+<summary>Main Inputs</summary>
+<div class="input_fields">
+<!-- All your original input fields remain unchanged -->
+<span><label>Brand</label><input type="text" id="brand" name="brand" placeholder="Brand:" required></span>
+<span><label>Series</label><input type="text" id="series" name="series" placeholder="Series:" required></span>
+<span><label>Part Number</label><input type="text" id="partNumber" name="part_number" placeholder="Part Number:" required></span>
+<span><label>Model Number</label><input type="text" id="modelNumber" name="model_number" placeholder="Model Number:" required></span>
+<span><label>Capacity</label><input type="text" id="capacity" name="capacity" placeholder="Capacity:" required></span>
+<span class="endurance-input"><label>Drive Endurance</label><input type="text" id="endurance" name="endurance" placeholder="Endurance:" required></span>
+<span class="spindle-input"><label>Spindle Speed</label><input type="text" id="spindleSpeed" name="spindle_speed" placeholder="Spindle Speed: RPM" required></span>
+<span><label>Interface</label>
+<select id="interface">
+    <option value="">--Choose an option--</option>
+    <option value="SAS">SAS</option>
+    <option value="SATA">SATA</option>
+    <option value="PCIe Gen 3.0 x4">PCIe Gen 3.0 x4</option>
+    <option value="PCIe Gen 3.0 x16">PCIe Gen 3.0 x16</option>
+    <option value="PCIe Gen 3.1 x4">PCIe Gen 3.1 x4</option>
+    <option value="PCIe Gen 3.1 x16">PCIe Gen 3.1 x16</option>
+    <option value="M.2">M.2</option>
+    <option value="FC">FC</option>
+    <option value="PCIe Gen 4.0 x4">PCIe Gen 4.0 x4</option>
+    <option value="PCIe Gen 4.0 x8">PCIe Gen 4.0 x8</option>
+</select></span>
+<span><label>Interface Speed</label>
+<select id="speed">
+    <option value="">--Choose an option--</option>
+    <option value="6Gb/s">6Gb/s</option>
+    <option value="12Gb/s">12Gb/s</option>
+    <option value="3Gb/s">3Gb/s</option>
+    <option value="8GB/s">8GB/s</option>
+    <option value="16GB/s">16GB/s</option>
+    <option value="4GB/s">4GB/s</option>
+</select></span>
+<span><label>Sector Size</label><input type="text" id="sectorSize" name="sector_size" placeholder="Sector Size:" required></span>
+<span class="cache-input"><label>Cache</label><input type="text" id="cache" name="cache" placeholder="Cache:" required></span>
+<span><label>Form Factor</label>
+<select id="formFactor">
+<option value="3.5">3.5 Inch</option>
+<option value="2.5">2.5 Inch</option>  
+</select></span>
+<span><label>Type</label>
+    <input type="text" id="typeSelect" value=""></span>
+<span><label>Tray</label>
+<select id="tray">
+<option value="">--Choose an option--</option>
+<option value="Bare Drive">Bare Drive</option>
+<option value="3.5 inch Dell G13 tray F238F">3.5 inch Dell G13 tray F238F</option>
+<option value="2.5 inch Dell G13 tray G176J">2.5 inch Dell G13 tray G176J</option>
+<option value="2.5 inch Dell G14 tray DXD9H">2.5 inch Dell G14 tray DXD9H</option>
+<option value="3.5 inch Dell G14 tray X7K8W">3.5 inch Dell G14 tray X7K8W</option>
+</select></span>
+<span><label>Image</label>
+<select id="image">
+<option value="">HDD</option>
+<option value="">SSD</option>
+<option value="">G13 Tray</option>
+<option value="">G14 Tray</option>        
+</select></span>
+</div>
+
+<div class="sku_condition">
+<label>SKU Condition</label>
+<div class="sku_input">
+<div class="checkbox-wrapper-40">
+    <label>
+    <input type="checkbox" id="new" checked>
+    <span class="checkbox"></span>
+  </label>
+    </div><div><input type="text" id="sku_new" placeholder="SKU New" required></div>
+<div class="checkbox-wrapper-40">
+    <label>
+    <input type="checkbox" id="recertified" checked>
+    <span class="checkbox"></span>
+  </label>
+    </div>
+    <div><input type="text" id="sku_recertified" placeholder="SKU Recertified" required></div>
+<div class="checkbox-wrapper-40">
+    <label>
+    <input type="checkbox" id="refurbished" checked>
+    <span class="checkbox"></span>
+  </label>
+</div>
+<div><input type="text" id="sku_refurbished" placeholder="SKU Refurbished" required></div>
+<div><label>Price </label><input type="text" id="sku_price" placeholder="Price" required></div>
+</div>
+</div>
+</details>
+
+<details class="ebay_input"><summary>eBay HDD Additional Inputs</summary>
+<div class="ebay_hdd">
+<!-- All your eBay fields remain unchanged -->
+<span><label>Type</label><select id="ebayType"><option value="Internal Desktop Drive">Internal Desktop Drive</option><option value="Enterprise Hard Drive">Enterprise Hard Drive</option></select></span>
+<span><label>Hours</label><input type="text" name="hours" id="hours" placeholder="Hours:"></span>
+<span><label>Read Speed</label><input type="text" name="read_speed" id="readSpeed" placeholder="Read Speed:"></span>
+<span><label>Recording Technology</label><input type="text" name="recording_tech" id="recordingTech" placeholder="Recording Technology:"></span>
+<span><label>MPN</label><input type="text" name="mpn" id="mpn" placeholder="MPN:"></span>
+<span><label>Important Message</label><input type="text" name="imMessage" id="imMessage" placeholder="Important Message:"></span>
+<span><label>Country/Region</label><input type="text" name="country" id="country" placeholder="Country/Region:"></span>
+<span><label>Compatible With</label><input type="text" name="compatible" id="compatible" placeholder="Compatible With:"></span>
+<span><label>Drive Type</label><input type="text" name="drive_type" id="driveType" placeholder="Drive Type:"></span>
+<span><label>Storage Format</label><input type="text" name="storage_format" id="storageFormat" placeholder="Storage Format:"></span>
+<span><label>SKU</label><input type="text" name="ebay_SKU" id="ebaySKU" placeholder="SKU:" required></span>
+<span><label>Price</label><input type="text" name="ebay_Price" id="ebayPrice" placeholder="Price:" required></span>
+</div>
+</details>
+
+<button class="btn-generate button-40">Generate</button>
+
+<!-- Tabs for eBay and Shopify -->
+<div class="tabs">
+    <div class="tab-buttons">
+        <button class="tab-btn active " data-tab="shopify-tab">Shopify</button>
+        <button class="tab-btn" data-tab="ebay-tab">eBay HDD</button>
+    </div>
+
+    <div id="shopify-tab" class="tab-content" style="display:block;">
+        <button id="exportShopify" class="btn-shopifyExport button-40">Export Shopify CSV</button>    
+        <div class="table-wrapper">
+            
+            <table id="shopify-table" class="resizable">
+                <thead>
+                    <tr>
+                        <!-- Shopify columns unchanged -->
+                        <th>Handle</th><th>Title</th><th>Body (HTML)</th><th>Vendor</th><th>Type</th>
+                        <th>Tags</th><th>Published</th><th>Option1 Name</th><th>Option1 Value</th>
+                        <th>Option2 Name</th><th>Option2 Value</th><th>Option3 Name</th><th>Option3 Value</th>
+                        <th>Variant SKU</th><th>Variant Grams</th><th>Variant Inventory Tracker</th>
+                        <th>Variant Inventory Qty</th><th>Variant Inventory Policy</th><th>Variant Fulfillment Service</th>
+                        <th>Variant Price</th><th>Variant Compare At Price</th><th>Variant Requires Shipping</th>
+                        <th>Variant Taxable</th><th>Variant Barcode</th><th>Image Src</th><th>Image Position</th>
+                        <th>Image Alt Text</th><th>Gift Card</th><th>SEO Title</th><th>SEO Description</th>
+                        <th>Google Shopping / Google Product Category</th><th>Google Shopping / Gender</th>
+                        <th>Google Shopping / Age Group</th><th>Google Shopping / MPN</th>
+                        <th>Google Shopping / AdWords Grouping</th><th>Google Shopping / AdWords Labels</th>
+                        <th>Google Shopping / Condition</th><th>Google Shopping / Custom Product</th>
+                        <th>Google Shopping / Custom Label 0</th><th>Google Shopping / Custom Label 1</th>
+                        <th>Google Shopping / Custom Label 2</th><th>Google Shopping / Custom Label 3</th>
+                        <th>Google Shopping / Custom Label 4</th><th>Variant Image</th><th>Variant Weight Unit</th>
+                        <th>Variant Tax Code</th><th>Cost per item</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="ebay-tab" class="tab-content">
+        <button id="exportEbay" class="btn-ebayExport button-40 ">Export eBay CSV</button>
+        <div class="table-wrapper">
+            
+            <table id="ebay-table">
+                <thead>
+                    <tr>
+                        <!-- eBay columns unchanged -->
+                        <th>Item ID</th><th>SKU</th><th>Parent SKU</th><th>Title</th><th>Description</th><th>Tags</th>
+                        <th>MetaKeywords</th><th>MetaDescription</th><th>MobileDescription</th><th>CategoryID</th>
+                        <th>CategoryID2</th><th>StoreCategory</th><th>StoreCategory2</th><th>eBayCatalogID</th>
+                        <th>eBayCatalogSearch</th><th>PromoteCampaign</th><th>PromoteRate</th><th>CarMake</th>
+                        <th>CarModel</th><th>CarYear</th><th>CarTrim</th><th>CarEngine</th><th>CopyCarCompatibility</th>
+                        <th>CarCompatibility</th><th>CarCompatibilityNotes</th><th>DeleteCarCompatibility</th><th>KType (TecDoc)</th>
+                        <th>PrivateListing</th><th>UpToQuantity</th><th>WarehouseQuantity</th><th>InventoryControl</th><th>Price</th>
+                        <th>WholesalePrice</th><th>OriginalRetailPrice</th><th>BestOffer</th><th>BestOfferAccept</th><th>BestOfferDecline</th>
+                        <th>VATPercent</th><th>ListingDuration</th><th>AuctionStartPrice</th><th>AuctionReservePrice</th><th>AuctionBINPrice</th>
+                        <th>Condition</th><th>ConditionNote</th><th>C:ASIN</th><th>C:UPC</th><th>C:EAN</th><th>C:MPN</th><th>C:Brand</th>
+                        <th>C:Manufacturer</th><th>C:Size</th><th>C:Color</th><th>C:Material</th><th>Attribute1Name</th><th>Attribute1Value</th>
+                        <th>Attribute2Name</th><th>Attribute2Value</th><th>CountryCode</th><th>Location</th><th>PostalCode</th>
+                        <th>PolicyPayment</th><th>PolicyShipping</th><th>PolicyReturn</th><th>PackageType</th><th>MeasurementSystem</th>
+                        <th>PackageLength</th><th>PackageWidth</th><th>PackageDepth</th><th>WeightMajor</th><th>WeightMinor</th>
+                        <th>ImageURLs</th><th>Image 1</th><th>Image 2</th><th>Image 3</th><th>VariationImageOption</th>
+                        <th>VariationImage 1</th><th>VariationImage 2</th><th>VariationImage 3</th><th>DeleteVariation</th><th>C:Type</th>
+                        <th>C:Hours</th><th>C:Read Speed</th><th>C:Cache</th><th>C:Rotation Speed</th><th>C:Interface</th>
+                        <th>C:Form Factor</th><th>C:Transfer Rate</th><th>C:Warranty</th><th>C:Recording Technology</th><th>C:Storage Capacity</th>
+                        <th>C:Model</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    <h3>Metafields Table</h3>
+<div class="table-wrapper">
+<table id="metafields-table" class="resizable">
+<thead>
+<tr>
+<th>Handle</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+<button id="exportMetafields" class="btn-shopify button-40">Export Metafields CSV</button>
+
+</div>
+
+    
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const ssdRadio = document.getElementById('ssd');
+const hddRadio = document.getElementById('hdd');
+const spindleInput = document.querySelectorAll('.spindle-input');
+const cacheInput = document.querySelectorAll('.cache-input');
+const enduranceInput = document.querySelectorAll('.endurance-input');
+const typeSelect = document.getElementById('typeSelect');
+const formFactorInput = document.getElementById('formFactor');
+const defaultFormFactor = formFactorInput?.value; // save original default
+
+function toggleSSDFields() {
+    if (ssdRadio.checked) {
+        // Hide spindle and cache inputs
+        spindleInput.forEach(el => el.style.setProperty('display', 'none', 'important'));
+        cacheInput.forEach(el => el.style.setProperty('display', 'none', 'important'));
+        // Show endurance input
+        enduranceInput.forEach(el => el.style.setProperty('display', 'flex', 'important'));
+        // Set typeSelect value
+        if (typeSelect) typeSelect.value = 'Solid State Drive';
+        // Set formFactor to 2.5
+        if (formFactorInput) formFactorInput.value = '2.5';
+    } else if (hddRadio.checked) {
+        // Show spindle and cache inputs
+        spindleInput.forEach(el => el.style.removeProperty('display'));
+        cacheInput.forEach(el => el.style.removeProperty('display'));
+        // Hide endurance input
+        enduranceInput.forEach(el => el.style.setProperty('display', 'none', 'important'));
+        // Reset typeSelect value
+        if (typeSelect) typeSelect.value = 'Hard Drive';
+        // Reset formFactor to original
+        if (formFactorInput) formFactorInput.value = defaultFormFactor;
+    }
+}
+
+// Initial check on page load
+toggleSSDFields();
+
+// Listen for changes on both radios
+ssdRadio.addEventListener('change', toggleSSDFields);
+hddRadio.addEventListener('change', toggleSSDFields);
+
+
+
+    // -------------------------------
+    // Tabs functionality
+    // -------------------------------
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
+            document.getElementById(btn.dataset.tab).style.display = 'block';
+        });
+    });
+
+    // -------------------------------
+    // CSV export function
+    // -------------------------------
+    function exportTableToCSV(tableId, filename) {
+        const table = document.getElementById(tableId);
+        const rows = table.querySelectorAll('tr');
+        const csv = [];
+        rows.forEach(row => {
+            const cols = row.querySelectorAll('th, td');
+            const rowData = [];
+            cols.forEach(col => {
+                let data = col.innerText.replace(/"/g, '""');
+                rowData.push('"' + data + '"');
+            });
+            csv.push(rowData.join(','));
+        });
+        const csvFile = new Blob([csv.join('\n')], { type: 'text/csv' });
+        const downloadLink = document.createElement('a');
+        downloadLink.download = filename;
+        downloadLink.href = window.URL.createObjectURL(csvFile);
+        downloadLink.click();
+    }
+
+    document.getElementById('exportShopify')?.addEventListener('click', () => exportTableToCSV('shopify-table', 'shopify.csv'));
+    document.getElementById('exportEbay')?.addEventListener('click', () => exportTableToCSV('ebay-table', 'ebay.csv'));
+    document.getElementById('exportMetafields')?.addEventListener('click', () => exportTableToCSV('metafields-table', 'metafields.csv'));
+
+    // -------------------------------
+    // Helpers
+    // -------------------------------
+    function escapeHTML(str) {
+        return String(str)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+function buildConditionLinks(data, currentCondition) {
+    // Compute base handle from product info WITHOUT any condition text
+    const baseHandle = `${data.brand} ${data.series} ${data.modelNumber} ${data.partNumber} ${data.capacity} ${data.spindleSpeed} ${data.interfaceVal} ${data.interfaceSpeed} ${data.formFactor}in`
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+
+    const conditions = [
+        { name: "New", suffix: "-hard-drive" },
+        { name: "Manufacturer Recertified", suffix: "-recertified-hard-drive" },
+        { name: "Seller Refurbished", suffix: "-refurbished-hard-drive" }
+    ];
+
+    let html = `<ul>`;
+    conditions.forEach(cond => {
+        if (cond.name === currentCondition) {
+            html += `<li class="selected-option"><a>${escapeHTML(cond.name)}</a></li>`;
+        } else {
+            html += `<li><a href="https://serverpartdeals.com/products/${baseHandle}${cond.suffix}">${escapeHTML(cond.name)}</a></li>`;
+        }
+    });
+    html += `</ul>`;
+    return html;
+}
+
+
+
+    function generateMetafieldsHTML(data, type) {
+const metafieldsHTML = `
+<div class="option-section">
+    <h4>Options</h4>
+    ${buildConditionLinks(data, type.conditionText)}
+</div>
+<div class="option-values">
+    <table class="metafield-description-table">
+        <tbody>
+            <tr><th scope="row">Capacity</th><td>${escapeHTML(data.capacity)}</td></tr>
+            <tr><th scope="row">Interface</th><td>${escapeHTML(data.interfaceVal)} ${escapeHTML(data.interfaceSpeed)}</td></tr>
+            <tr><th scope="row">Form Factor</th><td>${escapeHTML(data.formFactor)}"</td></tr>
+            <tr><th scope="row">Spindle Speed</th><td>${escapeHTML(data.spindleSpeed)}</td></tr>
+            <tr><th scope="row">Condition</th><td>${escapeHTML(type.conditionText)}</td></tr>
+            <tr><th scope="row">Warranty</th><td>${escapeHTML(type.validity)}</td></tr>
+        </tbody>
+    </table>
+</div>`;
+
+return escapeHTML(metafieldsHTML);
+
+    }
+
+    function generateSpecsHTML(data) {
+        return `
+<details>
+<summary>Specifications</summary>
+<table width="100%">
+<tbody>
+<tr><td>Brand</td><td>${data.brand}</td></tr>
+<tr><td>Series</td><td>${data.series}</td></tr>
+<tr><td>Model Number</td><td>${data.modelNumber}</td></tr>
+<tr><td>Part Number</td><td>${data.partNumber}</td></tr>
+<tr><td>Form Factor</td><td>${data.formFactor}"</td></tr>
+<tr><td>Capacity</td><td>${data.capacity}</td></tr>
+<tr><td>Interface</td><td>${data.interfaceVal} ${data.interfaceSpeed}</td></tr>
+<tr><td>Spindle Speed</td><td>${data.spindleSpeed}</td></tr>
+<tr><td>Tray</td><td>${data.tray}</td></tr>
+<tr><td>Type</td><td>${data.typeSelect}</td></tr>
+</tbody>
+</table>
+</details>`;
+    }
+
+    // -------------------------------
+    // Generate button
+    // -------------------------------
+    const generateBtn = document.querySelector('.btn-generate');
+    if (!generateBtn) return;
+
+generateBtn.addEventListener('click', () => {
+    const shopifyTableBody = document.querySelector('#shopify-table tbody');
+    const metafieldsTableBody = document.querySelector('#metafields-table tbody');
+    const ebayTableBody = document.querySelector('#ebay-table tbody');
+
+    const isSSD = ssdRadio.checked;
+
+    const data = {
+        brand: document.getElementById('brand')?.value,
+        series: document.getElementById('series')?.value,
+        partNumber: document.getElementById('partNumber')?.value,
+        modelNumber: document.getElementById('modelNumber')?.value,
+        capacity: document.getElementById('capacity')?.value,
+        formFactor: isSSD ? '2.5' : document.getElementById('formFactor')?.value,
+        interfaceVal: document.getElementById('interface')?.value,
+        interfaceSpeed: document.getElementById('speed')?.value,
+        spindleSpeed: isSSD ? '' : document.getElementById('spindleSpeed')?.value, // blank for SSD
+        cache: isSSD ? '' : document.getElementById('cache')?.value, // blank for SSD
+        endurance: isSSD ? document.getElementById('endurance')?.value : '',
+        tray: document.getElementById('tray')?.value,
+        priceNew: document.getElementById('sku_price')?.value,
+        image: document.getElementById('image')?.value,
+        typeSelect: isSSD ? 'Solid State Drive' : document.getElementById('typeSelect')?.value
+    };
+
+        const skuTypes = [
+            { checkboxId: 'new', skuId: 'sku_new', conditionText: 'New', validity: '3 Years Seller' },
+            { checkboxId: 'recertified', skuId: 'sku_recertified', conditionText: 'Manufacturer Recertified', validity: '3 Years Seller' },
+            { checkboxId: 'refurbished', skuId: 'sku_refurbished', conditionText: 'Seller Refurbished', validity: '2 Years Seller' }
+        ];
+
+        skuTypes.forEach(type => {
+            const checked = document.getElementById(type.checkboxId)?.checked;
+            const sku = document.getElementById(type.skuId)?.value;
+            if (!checked || !sku) return;
+
+            let driveTypeText = '';
+            if (type.conditionText === 'New') driveTypeText = 'Hard Drive';
+            else if (type.conditionText === 'Manufacturer Recertified') driveTypeText = 'Recertified Hard Drive';
+            else if (type.conditionText === 'Seller Refurbished') driveTypeText = 'Refurbished Hard Drive';
+            
+            let driveTypeSEO = '';
+            if (type.conditionText === 'New') driveTypeSEO = 'HDD';
+            else if (type.conditionText === 'Manufacturer Recertified') driveTypeSEO = 'Recertified HDD';
+            else if (type.conditionText === 'Seller Refurbished') driveTypeSEO = 'Refurbished HDD';
+            
+            let driveTypeCondition = '';
+            if (type.conditionText === 'New') driveTypeCondition = 'New';
+            else if (type.conditionText === 'Manufacturer Recertified') driveTypeCondition = 'Refurbished';
+            else if (type.conditionText === 'Seller Refurbished') driveTypeCondition = 'Used';
+
+            const handle = `${data.brand} ${data.series} ${data.modelNumber} ${data.partNumber} ${data.capacity} ${data.spindleSpeed} ${data.interfaceVal} ${data.interfaceSpeed} ${data.formFactor}in ${driveTypeText}`
+                .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            data.handle = handle;
+
+            // Metafields table row
+            const metaRow = document.createElement('tr');
+            metaRow.innerHTML = `<td>${handle}</td><td>${generateMetafieldsHTML(data, type)}</td>`;
+            metafieldsTableBody.appendChild(metaRow);
+
+            // Shopify table row
+            const title = `${data.brand} ${data.series} ${data.modelNumber} ${data.partNumber} ${data.capacity} ${data.spindleSpeed} ${data.interfaceVal} ${data.interfaceSpeed} ${data.formFactor}in ${driveTypeText}`;
+            const SEOTitle = `${data.brand} ${data.series} ${data.modelNumber} ${data.partNumber} ${data.capacity} ${data.interfaceVal} ${data.formFactor}" ${driveTypeSEO}`;
+            const specsHTML = generateSpecsHTML(data);
+            let warrantyHTML = `<details>
+    <summary><span class="headline">Warranty</span></summary>
+    <div class="indent-content">
+        <div id="warranty">
+            <div class="option-values">
+                <table class="metafield-warranty-table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div><span>Condition: ${type.conditionText} - ${type.validity} Limited Period Warranty</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Satisfaction Guarantee: Return for refund within 30 days of package reception date.</td>
+                        </tr>
+                        <tr>
+                            <td>This item is covered by serverpartdeals.com <a
+                                    href="https://serverpartdeals.com/pages/return-policy">Return Policy</a></td>
+                        </tr>
+                        <tr>
+                            <td>To initiate a return please fill out the <a
+                                    href="https://serverpartdeals.com/pages/return-form">Return Form</a></td>
+                        </tr>
+                        <tr>
+                            <td>For frequently asked questions about warranties and returns please visit our <a
+                                    href="https://serverpartdeals.com/pages/faqs">FAQs</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</details>`;
+// Compatibility HTML
+if (data.series) {
+    const seriesLower = data.series.toLowerCase();
+
+    if (seriesLower === 'generation 13') {
+        const compatibilityHTML = `
+<details>
+<summary><span class="headline">Compatibility</span></summary>
+<div class="indent-content">
+  <div id="compatibility">
+    <div class="compatibility-list">
+      <h2 class="compatibility-list-title">Compatible with these Dell Servers:</h2>
+
+      <h3 class="compatibility-list-header">Dell PowerEdge Tower Series (3.5in chassis):</h3>
+      <p class="compatibility-list-items">T310, T320, T330, T340, T410, T420, T430, T440, T610, T620, T630, T640, T710</p>
+
+      <h3 class="compatibility-list-header">Dell PowerEdge 11th Gen. Rack Series (3.5in chassis):</h3>
+      <p class="compatibility-list-items">R210, R310, R410, R415, R510, R710</p>
+
+      <h3 class="compatibility-list-header">Dell PowerEdge 12th Gen. Rack Series (3.5in chassis):</h3>
+      <p class="compatibility-list-items">R220, R320, R420, R520, R720, R720XD</p>
+
+      <h3 class="compatibility-list-header">Dell PowerEdge 13th Gen. Rack Series (3.5in chassis):</h3>
+      <p class="compatibility-list-items">R230, R330, R430, R530, R530XD, R730, R730XD</p>
+
+      <h3 class="compatibility-list-header">Dell PowerEdge Cloud Series Servers (3.5in chassis):</h3>
+      <p class="compatibility-list-items">C1100, C2100, C6100, C6220</p>
+
+      <h3 class="compatibility-list-header">Dell PowerVault NAS storage arrays (3.5in chassis):</h3>
+      <p class="compatibility-list-items">NF600, NX300, NX400, NX3000, NX3100, NX3200, NX3300</p>
+    </div>
+  </div>
+</div>
+</details>`;
+        warrantyHTML += compatibilityHTML;
+    } else if (seriesLower === 'generation 14') {
+        const compatibilityHTML = `
+<details>
+<summary><span class="headline">Compatibility</span></summary>
+<div class="indent-content">
+  <div id="compatibility">
+    <div class="compatibility-list">
+      <h2 class="compatibility-list-title">Compatible with these Dell Servers:</h2>
+
+      <h3 class="compatibility-list-header">PowerEdge 14th Gen Rack Series (3.5in chassis):</h3>
+      <p class="compatibility-list-items">R240, R340, R440, R540, R640, R6415, R740, R740XD, R740XD2, R7415, R7425, R6515, R6525, R7515, R7525, R450</p>
+
+      <h3 class="compatibility-list-header">PowerEdge 15th Gen Rack Series (3.5in chassis):</h3>
+      <p class="compatibility-list-items">R250, R260, R350, R450, R550, R650, R650xs, R6515, R6525, R750, R750xs, R750xa, R7515, R7525</p>
+
+      <h3 class="compatibility-list-header">PowerEdge 16th Gen Rack Series (3.5in chassis):</h3>
+      <p class="compatibility-list-items">R260, R360, R660, R660xs, R6615, R6625, R760, R760xa, R760xd2, R760xs, R7615, R7625, R860, R960</p>
+
+      <h3 class="compatibility-list-header">PowerEdge 17th Gen Rack Series (3.5in chassis):</h3>
+      <p class="compatibility-list-items">R470, R570, R670, R6715, R6725, R770, R7715, R7725</p>
+
+      <h3 class="compatibility-list-header">Dell PowerEdge Cloud Series Servers (3.5in chassis):</h3>
+      <p class="compatibility-list-items">C6420, C6520, C6525, C6615</p>
+
+      <h3 class="compatibility-list-header">Dell PowerVault NAS storage arrays (3.5in chassis):</h3>
+      <p class="compatibility-list-items">NX440, NX3240, MD2460, MD2412, ME5012, ME5084, ME412, ME484</p>
+
+      <h3 class="compatibility-list-header">Dell PowerEdge T-Series (3.5in chassis):</h3>
+      <p class="compatibility-list-items">T40, T140, T340, T440, T640, T150, T350, T550, T160, T360, T560</p>
+
+    </div>
+  </div>
+</div>
+</details>`;
+        warrantyHTML += compatibilityHTML;
+    }
+}
+
+// Escape HTML as usual
+const bodyHTML = escapeHTML(specsHTML + warrantyHTML);
+
+            const newRow = document.createElement('tr');
+            
+// -------------------------------
+// Data tag helpers
+// -------------------------------
+function parseCapacity(capacity) {
+    let num = 0;
+    let unit = 'GB';
+    const cap = capacity.toUpperCase().trim();
+
+    if (cap.endsWith('TB')) {
+        num = parseFloat(cap.replace('TB', '')) * 1024; // convert TB to GB
+        unit = 'TB';
+    } else if (cap.endsWith('GB')) {
+        num = parseFloat(cap.replace('GB', ''));
+    }
+    return num; // always in GB
+}
+
+function getCapacityGroup(capacity) {
+    const gb = parseCapacity(capacity);
+    if (gb < 300) return 'under 300GB';
+    if (gb >= 300 && gb <= 2400) return '300GB to 2.4TB';
+    if (gb > 2400 && gb <= 8192) return '2TB to 8TB';
+    if (gb > 8192) return '8TB and greater';
+    return 'unknown';
+}
+
+function isHighCapacity(capacity) {
+    const gb = parseCapacity(capacity);
+    return gb > 8192 ? 'Y' : 'N'; // >8TB
+}
+
+function getSkuCondition(conditionText) {
+    const map = { 'New': 'NB', 'Manufacturer Refurbished': 'MR', 'Seller Refurbished': 'SR' };
+    return map[conditionText] || '';
+}
+function getTitleCondition(conditionText) {
+    const mapTitle = {'New': 'New', 'Manufacturer Refurbished': 'Recertified', 'Seller Refurbished': 'Refurbished' };
+    return mapTitle[conditionText] || '';
+}
+            
+function generateDataTag(data, type) {
+    const capacityGroup = getCapacityGroup(data.capacity);
+    const highCapacity = isHighCapacity(data.capacity);
+    const skuCondition = getSkuCondition(type.conditionText);
+    const titleCondition = getTitleCondition(type.conditionText);
+
+    const tag = `brand:${data.brand},capacity:${data.capacity},capacityGroup:${capacityGroup},condition:${type.conditionText},formFactor:${data.formFactor},highCapacity:${highCapacity},interface:${data.interfaceVal},interfaceSpeed:${data.interfaceSpeed},series:${data.series},skuCondition:${skuCondition},type:Hard Drives,warranty:${type.validity},spindleSpeed:${data.spindleSpeed},000CardTitle:${titleCondition} ${data.series} ${data.capacity} ${data.interfaceVal} HDD ${data.modelNumber}`;
+    return tag;
+}            
+const dataTag = generateDataTag(data, type); // generate tag for this row
+newRow.setAttribute('data-tag', dataTag); // attach as a custom attribute            
+            
+            newRow.innerHTML = `
+<td>${handle}</td>
+<td>${title}</td>
+<td>${bodyHTML}</td>
+<td>${data.brand}</td>
+<td>${data.typeSelect}</td>
+<td>${dataTag}</td>
+<td>TRUE</td>
+<td>Default Title</td>
+<td></td><td></td><td></td><td></td><td></td>
+<td>${sku}</td>
+<td>908</td>
+<td>shopify</td>
+<td>0</td>
+<td>deny</td>
+<td>Manual</td>
+<td>${data.priceNew}</td>
+<td></td><td>TRUE</td><td>TRUE</td>
+<td></td><td>${data.image}</td>
+<td>1</td>
+<td>${title}</td>
+<td>false</td>
+<td>${SEOTitle}</td>
+<td>Buy the ${data.brand} ${data.series} ${data.capacity} ${data.interfaceVal} ${data.formFactor}" ${data.modelNumber} ${data.partNumber} at the lowest price with free & fast shipping.</td>
+<td>Electronics > Electronics Accessories > Computer Components > Storage Devices > Hard Drives</td>
+<td></td><td></td><td>${data.modelNumber}</td><td></td><td></td><td>${driveTypeCondition}</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+<td>lb</td>
+<td></td><td></td>`;
+            shopifyTableBody.appendChild(newRow);
+        });
+
+        // eBay table row
+        const ebaySKU = document.getElementById('ebaySKU')?.value;
+        if (ebaySKU && ebayTableBody) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+<td>${ebaySKU}</td>
+<td>${data.brand} ${data.series} ${data.modelNumber} ${data.partNumber}</td>
+<td>${document.getElementById('ebayType')?.value}</td>
+<td>${document.getElementById('hours')?.value}</td>
+<td>${document.getElementById('readSpeed')?.value}</td>
+<td>${document.getElementById('recordingTech')?.value}</td>
+<td>${document.getElementById('mpn')?.value}</td>
+<td>${document.getElementById('imMessage')?.value}</td>
+<td>${document.getElementById('country')?.value}</td>
+<td>${document.getElementById('compatible')?.value}</td>
+<td>${document.getElementById('driveType')?.value}</td>
+<td>${document.getElementById('storageFormat')?.value}</td>
+<td>${document.getElementById('ebayPrice')?.value}</td>`;
+            ebayTableBody.appendChild(row);
+        }
+    });
+});
+    // -------------------------------
+// Make tables resizable
+// -------------------------------
+function makeTableResizable(table) {
+    const thElements = table.querySelectorAll('th');
+    thElements.forEach((th) => {
+        const resizer = document.createElement('div');
+        resizer.className = 'resizer';
+        th.appendChild(resizer);
+
+        let startX, startWidth;
+
+        resizer.addEventListener('mousedown', (e) => {
+            startX = e.pageX;
+            startWidth = th.offsetWidth;
+            document.addEventListener('mousemove', resizeColumn);
+            document.addEventListener('mouseup', stopResize);
+        });
+
+        function resizeColumn(e) {
+            const newWidth = startWidth + (e.pageX - startX);
+            if (newWidth > 30) th.style.width = newWidth + 'px';
+        }
+
+        function stopResize() {
+            document.removeEventListener('mousemove', resizeColumn);
+            document.removeEventListener('mouseup', stopResize);
+        }
+    });
+}
+
+// Apply to all resizable tables
+document.querySelectorAll('table.resizable').forEach(makeTableResizable);
+
+// Reapply resizable to Metafields table whenever new rows are added
+const observer = new MutationObserver((mutationsList, observer) => {
+    mutationsList.forEach(mutation => {
+        mutation.addedNodes.forEach(node => {
+            if (node.nodeName === 'TR') {
+                makeTableResizable(node.closest('table'));
+            }
+        });
+    });
+});
+
+document.querySelectorAll('table.resizable tbody').forEach(tbody => {
+    observer.observe(tbody, { childList: true });
+});
+document.getElementById('exportMetafields')?.addEventListener('click', () => exportTableToCSV('metafields-table', 'metafields.csv'));
+
+</script>
+</body>
+</html>
