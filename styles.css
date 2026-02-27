@@ -527,3 +527,12 @@ span.tipwrapper {
 .input_fields span {
   overflow: visible; /* allow child tooltip to show outside */
 }
+
+.btn-clear {
+    background-color:white;
+    border: 1px solid #ccc;
+    color:black;
+}
+.btn-clear:hover {
+    background-color:rgba(0,0,0,0.05);
+}

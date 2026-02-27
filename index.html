@@ -43,7 +43,10 @@
 <span><span class="tipwrapper"><label for="brand">Series</label>
   <span class="tooltip">
     <span class="info-icon">i</span>
-<span class="tooltiptext">E.g.: For Dell - Generation 14, Generation 13</span>
+<span class="tooltiptext">
+    E.g.: For Dell - Generation 14, Generation 13<br>
+          For HP - Generation 8, Generation 11    
+      </span>
 </span></span><input type="text" id="series" name="series" placeholder="Series:"></span>
 <span><label>Part Number</label><input type="text" id="partNumber" name="part_number" placeholder="Part Number:"></span>
 <span><label>Model Number</label><input type="text" id="modelNumber" name="model_number" placeholder="Model Number:" required></span>
@@ -59,8 +62,8 @@
     <span class="tooltiptext">E.g.: 7.2K RPM, 5.2K RPM</span>
   </span></span><input type="text" id="spindleSpeed" name="spindle_speed" placeholder="Spindle Speed: RPM" required></span>
 <span><label>Interface</label>
-<select id="interface">
-    <option value="">--Choose an option--</option>
+<input list="interfaces" id="interface" placeholder="--Choose an option--">   
+<datalist id="interfaces">
     <option value="SAS">SAS</option>
     <option value="SAS-4">SAS-4</option>
     <option value="SATA">SATA</option>
@@ -72,20 +75,25 @@
     <option value="FC">FC</option>
     <option value="PCIe Gen 4.0 x4">PCIe Gen 4.0 x4</option>
     <option value="PCIe Gen 4.0 x8">PCIe Gen 4.0 x8</option>
-</select></span>
+    <option value="PCIe Gen 4 ×4 NVMe">PCIe Gen 4 ×4 NVMe</option>
+    <option value="PCIe Gen 4 ×8 NVMe">PCIe Gen 4 ×8 NVMe</option>
+</datalist>
+</span>
 <span><label>Interface Speed</label>
-<select id="speed">
+ <input list="speeds" id="speed" placeholder="--Choose an option--">     
+<datalist id="speeds">
     <option value="">--Choose an option--</option>
     <option value="3Gb/s">3Gb/s</option>
     <option value="6Gb/s">6Gb/s</option>
     <option value="12Gb/s">12Gb/s</option>
+    <option value="Dual 12Gb/s">Dual 12Gb/s</option>
     <option value="24Gb/s">24Gb/s</option>
     <option value="4GB/s">4GB/s</option>
     <option value="8GB/s">8GB/s</option>
     <option value="16GB/s">16GB/s</option>
     <option value="16GB/s">24GB/s</option>
     
-</select></span>
+</datalist></span>
 <span><span class="tipwrapper"><label for="brand">Sector Size</label>
   <span class="tooltip">
     <span class="info-icon">i</span>
@@ -98,10 +106,21 @@
 <span class="tooltiptext">E.g.: 256MB, 512MB</span>
 </span></span><input type="text" id="cache" name="cache" placeholder="Cache:" required></span>
 <span><label>Form Factor</label>
-<select id="formFactor">
+<input list="formFactors" id="formFactor" placeholder="--Choose an option--">   
+<datalist id="formFactors">
 <option value="3.5">3.5 Inch</option>
-<option value="2.5">2.5 Inch</option>  
-</select></span>
+<option value="2.5">2.5 Inch</option>
+<option value="M.2">M.2</option>
+<option value="M.2 2280">M.2 2280</option>  
+<option value="M.2 2260">M.2 2260</option>  
+<option value="M.2 2242">M.2 2242</option> 
+<option value="M.2 2230">M.2 2230</option> 
+<option value="M.2 22110">M.2 22110</option> 
+<option value="M.2 2230-S2">M.2 2230-S2</option> 
+<option value="U.2">U.2</option> 
+<option value="U.3">U.3</option> 
+    
+</datalist></span>
 <span><label>Type</label>
     <input type="text" id="typeSelect" value=""></span>
 <span><label>Tray</label>
@@ -111,6 +130,15 @@
 <option value="3.5 inch Dell G14 tray X7K8W">3.5 inch Dell G14 tray X7K8W</option>
 <option value="2.5 inch Dell G13 tray G176J">2.5 inch Dell G13 tray G176J</option>
 <option value="2.5 inch Dell G14 tray DXD9H">2.5 inch Dell G14 tray DXD9H</option>
+<option value="2.5 inch HP Gen8 Tray compatible with Gen8, Gen9, and Gen10 ProLiant Servers">2.5 inch HP Gen8 Tray compatible with Gen8, Gen9, and Gen10 ProLiant Servers</option>
+<option value="3.5 inch HP Gen8 Tray compatible with Gen8 and Gen9 ProLiant Servers">3.5 inch HP Gen8 Tray compatible with Gen8 and Gen9 ProLiant Servers</option>
+<option value="2.5 inch HP Gen7 Tray compatible with Gen6 and Gen7 ProLiant Servers">2.5 inch HP Gen7 Tray compatible with Gen6 and Gen7 ProLiant Servers</option>
+<option value="3.5 inch HP Gen7 Tray compatible with Gen6 and Gen7 ProLiant Servers">3.5 inch HP Gen7 Tray compatible with Gen6 and Gen7 ProLiant Servers</option>
+<option value="2.5 inch HP Gen10 Tray compatible with Gen10 ProLiant Servers">2.5 inch HP Gen10 Tray compatible with Gen10 ProLiant Servers</option>
+<option value="2.5 inch HP Gen11 Tray compatible with Gen10+ and Gen 11 ProLiant Servers">2.5 inch HP Gen11 Tray compatible with Gen10+ and Gen 11 ProLiant Servers</option>
+<option value="3.5 inch HP Gen11 Tray compatible with Gen10+ and Gen 11 ProLiant Servers">3.5 inch HP Gen11 Tray compatible with Gen10+ and Gen 11 ProLiant Servers</option>
+<option value="Hybrid 2.5 to 3.5 inch Dell G13 tray F238F">Hybrid 2.5 to 3.5 inch Dell G13 tray F238F</option>
+<option value="Hybrid 2.5 to 3.5 inch Dell G14 tray X7K8W">Hybrid 2.5 to 3.5 inch Dell G14 tray X7K8W</option>
 
 </select></span>
 <span><label>Image</label>
@@ -119,12 +147,19 @@
 <option value="https://cdn.shopify.com/s/files/1/0011/8675/8756/files/generic_blank_SAS_SSD_8ebb12ba-0c6f-438a-acf4-8ca22beffea9.jpg?v=1762456428">SSD</option>
 <option value="https://cdn.shopify.com/s/files/1/0011/8675/8756/files/DellG13_ecd63698-5c98-43b9-8953-c8658b7c5653.webp?v=1763153403">G13 Tray</option>
 <option value="https://cdn.shopify.com/s/files/1/0011/8675/8756/files/Dell_G14_f698568c-51fd-4b99-92ec-7dbe2d639e82.webp?v=1764684877">G14 Tray</option> 
+<option value="https://cdn.shopify.com/s/files/1/0011/8675/8756/files/g13_conv_f20b4622-87b7-4f0c-805c-2749de81fd32.png?v=1762871214">G13 Hybrid Tray</option> 
+<option value="https://cdn.shopify.com/s/files/1/0011/8675/8756/files/g14_conv_288f60b3-4b81-43fc-b669-c39ed473a10b.png?v=1768940847">G14 Hybrid Tray</option> 
+
 <option value="others">Others</option>
 </select></span>
 <span class="other_image" style="display:none" id="other_image"> 
 <label>Other Image</label>
 <input type="text" id="otherImage" name="other_image" placeholder="Image URL">
-</span>       
+</span> 
+    <span><label>Datasheet Name</label>
+    <input type="text" id="datasheetName" value=""></span>
+    <span><label>Datasheet Link</label>
+    <input type="text" id="datasheetLink" value=""></span>
 </div>
 
 <div class="sku_condition">
@@ -136,8 +171,21 @@
   </label>
   
     <div class="conditionWrapper">
+    
     <input type="text" id="sku_new" placeholder="SKU New" required>
-  <input type="text" id="priceNew" placeholder="Price for New" required>
+    <input type="text" id="priceNew" placeholder="Price for New" required>
+    <select id="newWarranty" required>
+        <option value="">--Select Warranty--</option>
+        <option>90 Days Seller</option>
+        <option>1 Year Seller</option>
+        <option>2 Year Seller</option>
+        <option>2 Year Seller</option>
+        <option>3 Year Seller</option>
+        <option>5 Year Seller</option>
+        <option>3 Year Manufacturer</option>
+        <option>5 Year Manufacturer</option>
+    </select>
+    <input type="text" id="noteNB" placeholder="Notes for New">
     </div>
   </div>    
     
@@ -150,6 +198,17 @@
     <div class="conditionWrapper">
     <input type="text" id="sku_recertified" placeholder="SKU Recertified" required>
     <input type="text" id="priceMR" placeholder="Price for MR" required>
+    <select id="recertifiedWarranty" required>
+        <option value="">--Select Warranty--</option>
+        <option>90 Days Seller</option>
+        <option>1 Year Seller</option>
+        <option>2 Year Seller</option>
+        <option>3 Year Seller</option>
+        <option>5 Year Seller</option>
+        <option>3 Year Manufacturer</option>
+        <option>5 Year Manufacturer</option>
+    </select>
+    <input type="text" id="noteMR" placeholder="Note for Recertified">
     </div>
    </div>    
     
@@ -161,6 +220,17 @@
 <div class="conditionWrapper">
     <input type="text" id="sku_refurbished" placeholder="SKU Refurbished" required>
     <input type="text" id="priceSR" placeholder="Price for SR" required>
+    <select id="refurbishedWarranty" required>
+        <option value="">--Select Warranty--</option>
+        <option>90 Days Seller</option>
+        <option>1 Year Seller</option>
+        <option>2 Year Seller</option>
+        <option>3 Year Seller</option>
+        <option>5 Year Seller</option>
+        <option>3 Year Manufacturer</option>
+        <option>5 Year Manufacturer</option>
+    </select> 
+    <input type="text" id="noteSR" placeholder="Note for Refurbished">
     </div>
 </div>
 </div>
@@ -210,7 +280,18 @@
 <span id="flashInput"><label>Flash</label><input type="text" name="flash" id="flash" placeholder="Flash"></span>
 <span><label>SKU</label><input type="text" name="ebay_SKU" id="ebaySKU" placeholder="SKU:" required></span>
 <span><label>Price</label><input type="text" name="ebay_Price" id="ebayPrice" placeholder="Price:" required></span>
-<span><label>Condition</label>
+<span><label>Warranty</label>
+    <select id="ebayWarranty" required>
+        <option value="">--Select Warranty--</option>
+        <option>90 Days Seller</option>
+        <option>1 Year Seller</option>
+        <option>2 Year Seller</option>
+        <option selected>3 Year Seller</option>
+        <option>5 Year Seller</option>
+        <option>3 Year Manufacturer</option>
+        <option>5 Year Manufacturer</option>
+    </select> </span>
+    <span><label>Condition</label>
 <select id="condition">
 <option value="New">New</option>
 <option value="Open Box">Open Box</option>
@@ -230,7 +311,7 @@
 </details>
 
 <button class="btn-generate button-40">Generate</button>
-
+<button class="btn-clear button-40">Clear Tables</button>
 <!-- Tabs for eBay and Shopify -->
 <div class="tabs">
     <div class="tab-buttons">
